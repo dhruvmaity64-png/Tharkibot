@@ -176,6 +176,9 @@ async def nc_worker(bot, chat_id: int, base_text: str, mode: str, counter_dict: 
     emoji_len = len(EMOJI_LIST)
     ncemo_len = len(NCEMO_EMOJIS)
     try:
+
+     # Fix update
+
         while not shutdown_event.is_set():
             try:
                 styled_base = f"{base_text} {BOT_NAME_STYLE}"
