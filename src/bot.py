@@ -532,7 +532,8 @@ async def universal_command_handler(update: Update, context: ContextTypes.DEFAUL
             "stopspam": stopspam,
         }
         
-        | command in handlers:
+                if command in handlers:
+
             await handlers[command](update, context)
     except Exception as e:
         logging.error(f"Error: {e}")
