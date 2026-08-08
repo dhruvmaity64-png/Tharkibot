@@ -295,8 +295,8 @@ async def oneword_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if args and args[0].isdigit():
             count = int(args[0])
     elif len(args) >= 2:
-    if args[0].isdigit():
-        count = int(args[0])
+        if args[0].isdigit():
+            count = int(args[0])
         target = args[1]
     elif args[1].isdigit():
         target = args[0]
