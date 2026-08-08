@@ -295,9 +295,14 @@ async def oneword_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if args and args[0].isdigit():
             count = int(args[0])
     elif len(args) >= 2:
+    if args[0].isdigit():
+        count = int(args[0])
+        target = args[1]
+    elif args[1].isdigit():
         target = args[0]
-        if args[1].isdigit():
-            count = int(args[1])
+        count = int(args[1])
+    else:
+        target = args[0]
     elif len(args) == 1:
         if args[0].isdigit():
             count = int(args[0])
@@ -334,15 +339,16 @@ async def raid_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if args and args[0].isdigit():
             count = int(args[0])
     elif len(args) >= 2:
+    if args[0].isdigit():
+        count = int(args[0])
+        target = args[1]
+    elif args[1].isdigit():
         target = args[0]
-        if args[1].isdigit():
-            count = int(args[1])
-    elif len(args) == 1:
-        if args[0].isdigit():
-            count = int(args[0])
-            target = f"@{update.effective_user.username}" if update.effective_user.username else update.effective_user.first_name
-        else:
-            target = args[0]
+        count = int(args[1])
+    else:
+        target = args[0]
+        
+           
     else:
         return await update.message.reply_text("⚠️ Usage: ~raid <target/username> <count> (or reply to user)")
 
